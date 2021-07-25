@@ -1,4 +1,4 @@
-name: build-push-ghcr
+name: base
 
 on:
   push:

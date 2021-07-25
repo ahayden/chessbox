@@ -34,10 +34,10 @@ RUN adduser --disabled-password ${container_user} \
 
 USER ${container_user}
 
-RUN git clone https://github.com/${container_user}/certabo-lichess.git \
+RUN cd /tmp/ && git clone https://github.com/${container_user}/certabo-lichess.git \
     && cd certabo-lichess \
     && python3 -m pip install --user -r requirements.txt
 
 ENTRYPOINT ["tini", "--"]
 
-CMD /home/${container_user}/certabo-lichess/certabo-lichess.py --correspondence
+CMD /tmp/certabo-lichess/certabo-lichess.py --correspondence

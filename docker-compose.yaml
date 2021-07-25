@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.3"
 
 services:
   chessbox:
@@ -11,5 +11,5 @@ services:
     container_name: chessbox
     volumes:
       - /dev:/dev
-      - /home/ahayden/src/github.com/ahayden/certabo-lichess/lichess.token:/home/ahayden/certabo-lichess/lichess.token
+      - /home/ahayden/src/github.com/ahayden/certabo-lichess/lichess.token:/tmp/certabo-lichess/lichess.token
 

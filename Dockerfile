@@ -25,6 +25,9 @@ RUN apt-get update -qq -y && apt-get install --no-install-recommends -qq -y \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+RUN adduser --disabled-password ${container_user} \
+    && usermod -a -G users ${container_user}
+
 USER ${container_user}
 
 # lichess.token and calibration.bin are manually generated via scripts in `certabo-lichess`

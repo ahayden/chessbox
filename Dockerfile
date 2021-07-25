@@ -19,6 +19,7 @@ RUN apt-get update -qq -y && apt-get install --no-install-recommends -qq -y \
         ca-certificates \
         git \
         python3 python3-pip \
+        sudo \
         tini \
     && update-ca-certificates \
     && apt-get -y autoclean \

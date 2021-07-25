@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile.${{github.workflow}}
+          file: ./Dockerfile
           platforms: linux/amd64, linux/arm64, linux/arm/v6, linux/arm/v7 
           build-args: |
             container_user=${{steps.prep.outputs.container_user}}

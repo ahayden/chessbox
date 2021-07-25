@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  chessbox:
+    image: ghcr.io/ahayden/chessbox:base
+    hostname: chessbox
+    environment:
+      TERM: "xterm-color"
+    extra_hosts:
+      - "chessbox:127.0.0.1"
+    container_name: chessbox
+    volumes:
+      - /dev:/dev
+      - /home/ahayden/src/github.com/ahayden/certabo-lichess/lichess.token:/home/ahayden/certabo-lichess/lichess.token
+

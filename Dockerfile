@@ -7,7 +7,7 @@ RUN test -n "${container_user}"
 
 USER root
 
-WORKDIR /tmp/certabo-lichess
+WORKDIR /tmp
 
 # Enable shell pipefail option
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -31,8 +31,8 @@ RUN adduser --disabled-password ${container_user} \
 USER ${container_user}
 
 # lichess.token and calibration.bin are manually generated via scripts in `certabo-lichess`
-RUN cd /tmp/ && git clone https://github.com/${container_user}/certabo-lichess.git \
-    && cd certabo-lichess \
+WORKDIR /tmp/certabo-lichess
+RUN git clone https://github.com/${container_user}/certabo-lichess.git . \
     && python3 -m pip install --user -r requirements.txt \
     && touch lichess.token \
     && touch calibration.bin

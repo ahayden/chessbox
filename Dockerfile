@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM debian:bullseye
 
 LABEL about.license="SPDX:Apache-2.0"
 

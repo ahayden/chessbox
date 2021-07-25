@@ -10,6 +10,14 @@ services:
       - "chessbox:127.0.0.1"
     container_name: chessbox
     volumes:
-      - /dev:/dev
-      - /home/ahayden/src/github.com/ahayden/certabo-lichess/lichess.token:/tmp/certabo-lichess/lichess.token
-
+      - type: bind
+        source: /dev/serial/by-id/usb-Silicon_Labs_CP2103_USB_to_UART_Bridge_Controller_0001-if00-port0
+        target: /dev/certabo
+      - type: bind
+        source: ../certabo-lichess/calibration.bin
+        target: /tmp/calibration.bin
+        read_only: true
+      - type: bind
+        source: ../certabo-lichess/lichess.token
+        target: /tmp/lichess.token
+        read_only: true

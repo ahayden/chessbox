@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:stable
 
 LABEL about.license="SPDX:Apache-2.0"
 
@@ -13,7 +13,7 @@ WORKDIR /tmp
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update -qq -y && apt-get install --no-install-recommends -qq -y \
-	curl \
+	      curl \
         gnupg2 \
         apt-transport-https \
         ca-certificates \

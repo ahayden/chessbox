@@ -34,8 +34,7 @@ USER ${container_user}
 WORKDIR /tmp/certabo-lichess
 RUN git clone https://github.com/${container_user}/certabo-lichess.git . \
     && python3 -m pip install --user -r requirements.txt \
-    && touch lichess.token \
-    && touch calibration.bin
+    && touch lichess.token
 
 ENTRYPOINT ["tini", "--"]
 

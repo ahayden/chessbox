@@ -16,10 +16,11 @@ services:
         source: /dev/serial/by-id/usb-Silicon_Labs_CP2103_USB_to_UART_Bridge_Controller_0001-if00-port0
         target: /dev/certabo
       - type: bind
-        source: ../certabo-lichess/calibration.bin
-        target: /tmp/certabo-lichess/calibration.bin
-        read_only: true
-      - type: bind
-        source: ../certabo-lichess/lichess.token
+        source: ./lichess.token
         target: /tmp/certabo-lichess/lichess.token
         read_only: true
+      - home:/home/$USER
+
+volumes:
+  home:
+

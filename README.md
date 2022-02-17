@@ -1,5 +1,5 @@
 ### Requirements
-- Using Debian bullseye as a docker host requires the following 
+- Using Debian stable as a docker host requires the following 
   - Packages
     - docker.io
     - docker-compose

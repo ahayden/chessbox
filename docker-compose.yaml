@@ -19,8 +19,8 @@ services:
         source: ./lichess.token
         target: /tmp/certabo-lichess/lichess.token
         read_only: true
-      - home:/home/$USER
+      - home-local-share:/home/$USER/.local/share/
 
 volumes:
-  home:
+  home-local-share:
 

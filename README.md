@@ -11,11 +11,10 @@
       - ie `/dev/serial/by-id/usb-Silicon_Labs_CP2103_USB_to_UART_Bridge_Controller_0001-if00-port`
     - Make the serial devices writeable outside of the root owner and dialout user groups
       - ie `echo 'KERNEL=="ttyUSB[0-9]*",MODE="0666" >> /etc/udev/rules.d/99-serial.rules'`
-- Clone the [certabo-lichess](https://github.com/ahayden/certabo-lichess) client to 
-  the docker host so you can manually add the `lichess.token` and `calibrate.bin` files
-  referenced in [docker-compose.yaml](https://github.com/ahayden/chessbox/blob/main/docker-compose.yaml)
-  - Use `certabo-lichess.py` on the docker host to generate `calibrate.bin`. Run it with
-    with both sets of queens.
+- Add a lichess.token file to the same directory as the `docker-compose.yaml` file
+- Run `docker-compose run chessbox /tmp/certabo-lichess/certabo-lichess.py 
+  --port /dev/certabo --calibrate` to generate a calibration file. It will be 
+  stored persistently. Run it again with the second set of queens.
 
 ### Running
 - Run `docker-compose up` to start the container. It will run at boot and will restart 
